@@ -97,6 +97,39 @@ The current app experience includes:
 
 ---
 
+## Architecture
+
+```text
+Cultural Hub
+├── lib/main.dart
+│   ├── LaunchScreen
+│   ├── HomeScreen
+│   └── WebIntroScreen
+├── lib/screens/
+│   ├── writing_screen.dart
+│   ├── books_screen.dart
+│   ├── book_detail_screen.dart
+│   ├── book_reader_screen.dart
+│   ├── ai_panel.dart
+│   ├── formatting_panel.dart
+│   └── workspace_selector.dart
+├── lib/services/
+│   ├── ai_service.dart -> Groq chat completions API
+│   ├── books_service.dart -> Google Books API
+│   └── storage_service.dart -> local draft persistence
+├── lib/models/
+│   ├── draft.dart
+│   └── book.dart
+└── lib/themes/
+	└── workspace_theme.dart
+```
+
+- The launch flow routes web users to a book-themed onboarding screen and mobile/desktop users to the main home screen.
+- Writing and reading features are separated into dedicated screens to keep navigation clear and maintainable.
+- API calls and local persistence are isolated in service classes so UI widgets stay focused on presentation.
+
+---
+
 ## Tech Stack
 
 - Flutter
